@@ -1,8 +1,8 @@
-# Variables
+
 POST_TITLE ?= ""
 POST_NAME ?= ""
 
-# Targets
+
 build:
     hugo --source . --destination dist/
 
@@ -14,3 +14,4 @@ post:
     sed -i 's/title: ""/title: "$(POST_TITLE)"/' content/post/$(POST_NAME).md
 
 .PHONY: build clean post
+
