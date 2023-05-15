@@ -27,3 +27,8 @@ This repository contains the source code for My Awesome Website built with Go-Hu
 ## Command Line Usage
 
 To see the list of available targets and their usage, run the following command:
+make help
+
+This will display the list of targets along with their descriptions. The `help` target is particularly useful for providing an overview of the available targets and their purposes.
+
+
