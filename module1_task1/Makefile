@@ -1,17 +1,11 @@
-
-POST_TITLE ?= ""
-POST_NAME ?= ""
-
-
 build:
-    hugo --source . --destination dist/
+	@hugo
 
 clean:
-    rm -rf dist/*
+	@rm -rf dist/*
 
 post:
-    hugo new --kind post post/$(POST_NAME).md
-    sed -i 's/title: ""/title: "$(POST_TITLE)"/' content/post/$(POST_NAME).md
-
-.PHONY: build clean post
+	@hugo new posts/$(POST_NAME).md
+	@sed -i 's/title:.*/title: $(POST_TITLE)/' content/posts/$(POST_NAME).md
+	@sed -i -r 's/draft:.*/draft:"false"/' content/posts/$(POST_NAME).md
 
