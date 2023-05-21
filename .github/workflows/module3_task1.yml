@@ -1,12 +1,12 @@
 name: module3_task1
-run-name: module3_task1
-on: # yamllint disable-line rule:truthy
+on:
   push:
   schedule:
     - cron: "0 1 * * *"
+
 jobs:
   Add-Build-Dependencies:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -18,21 +18,22 @@ jobs:
       - name: Build
         run: sudo make build
         working-directory: module3_task1
-        
-      - name: Go 
+
+      - name: Go
         run: sudo make lint
 
       - name: Validate
         run: sudo make validate
-        
+
       - name: Unit-tests
         run: sudo make unit-tests
-        
+
       - name: Run
         run: sudo make run
 
       - name: Stop
         run: sudo make stop
-     
+
       - name: Clean
         run: sudo make clean
+
