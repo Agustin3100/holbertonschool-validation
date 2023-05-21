@@ -5,14 +5,14 @@ on: # yamllint disable-line rule:truthy
   schedule:
     - cron: "30 5,17 * * *"
 jobs:
-  Explore-GitHub-Actions:
+  Add-Build-Dependencies:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Setup
-        run: ./setup.sh
+        run: ../setup.sh
         working-directory: module3_task1
 
       - name: Build
