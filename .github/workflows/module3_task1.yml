@@ -18,3 +18,21 @@ jobs:
       - name: Build
         run: sudo make build
         working-directory: module3_task1
+        
+      - name: Go 
+        run: sudo make lint
+
+      - name: Validate
+        run: sudo make validate
+        
+      - name: Unit-tests
+        run: sudo make unit-tests
+        
+      - name: Run
+        run: sudo make run
+
+      - name: Stop
+        run: sudo make stop
+     
+      - name: Clean
+        run: sudo make clean
