@@ -1,27 +1,20 @@
 name: module3_task1
-"on":
+run-name: module3_task1
+on: # yamllint disable-line rule:truthy
   push:
-    branches:
-      - main
   schedule:
-    - cron: '0 0 * * *'
-
-permissions: read-all
-
+    - cron: "0 1 * * *"
 jobs:
-  builds:
-    name: job1
-    runs-on: ubuntu-18.04
-
+  Add-Build-Dependencies:
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
-      - name: install hugo
-        run: |
-          cd module3_task1 && ./setup.sh
-      - name: Validate Makefile help
-        run: |
-          cd module3_task1
-          make help
-          make build
-          make clean
-          make POST_NAME=who-are-we POST_TITLE="Who are we" post
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup
+        run: ./setup.sh
+        working-directory: module3_task1
+
+      - name: Build
+        run: sudo make build
+        working-directory: module3_task1
