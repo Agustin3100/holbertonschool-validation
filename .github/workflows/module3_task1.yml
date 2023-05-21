@@ -3,16 +3,16 @@ run-name: module3_task1
 on: # yamllint disable-line rule:truthy
   push:
   schedule:
-    - cron: "30 5,17 * * *"
+    - cron: "0 1 * * *"
 jobs:
   Add-Build-Dependencies:
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
 
       - name: Setup
-        run: ../setup.sh
+        run: ./setup.sh
         working-directory: module3_task1
 
       - name: Build
